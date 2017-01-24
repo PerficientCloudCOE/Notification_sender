@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style>
+.header img {
+	float: left;
+	width: 300px;
+	height: 100px;
+	background: #555;
+}
+
+.container {
+  position: absolute;
+  width: 70%;
+  height:40%;
+  z-index: 15;
+  top: 30%;
+  left: 30%;
+  margin: -100px 0 0 -150px;
+}
+
+
+</style>
+
+
+
+</head>
+<body background="images\A.jpg">
+
+	<div class="header">
+		<img src="images\Perficient logo.jpg" alt="logo"/>
+	</div>
+
+
+
+
+	<div class="container">
+		<div id="loginbox" style="margin-top: 50px; width: 450px"
+			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Registration Page</div>
+				</div>
+
+				<div style="padding-top: 30px" class="panel-body">
+
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+
+					<form class="form-horizontal" name="Registeration form"
+						method="post" action="register.do">
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label"
+								style="padding-left: 50px"><span
+							class="req">*</span>First Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span> <input type="text"
+										class="form-control" name="firstname" id="name" onkeyup="Validate(this)"
+										placeholder="Enter your First Name" style="width: 60%" required/>
+										<div id="errFirst"></div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label"
+								style="padding-left: 50px"><span
+							class="req">*</span>Last Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span> <input type="text"
+										class="form-control" name="lastname" id="txt" onkeyup="Validate(this)"
+										placeholder="Enter your Last Name" style="width: 60%" required />
+										<div id="errLast"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label"
+								style="padding-left: 50px">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i
+										class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
+										class="form-control" required type="text" name="email"
+									id="email" onchange="email_validate(this.value);"
+									placeholder="Enter your Email" style="width: 60%" />
+									<div class="status" id="status"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label"
+								style="padding-left: 50px"><span
+							class="req">*</span>Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i
+										class="fa fa-users fa" aria-hidden="true"></i></span> <input
+										type="text" class="form-control" name="userName" id="username"
+									    onkeyup="Validate(this)"placeholder="Enter your Username" required style="width: 60%" />
+										<div id="errLast"></div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="Role" class="cols-sm-2 control-label"
+								style="padding-left: 50px"><span
+							class="req">*</span>Role</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span> <input type="text"
+										class="form-control" name="role" id="Role" onkeyup="Validate(this)"
+									placeholder="Role" required
+										style="width: 60%" />
+										<div id="errLast"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label"
+								style="padding-left: 50px"><span
+							class="req">*</span>Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i
+										class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
+										type="password" class="form-control"  inputpass" inputpass" minlength="4"
+									maxlength="16" name="password" id="password"
+									placeholder="Password"
+										style="width: 60%" />
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label"
+								style="padding-left: 50px"><span class="req">*</span> Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group" style="padding-left: 50px">
+									<span class="input-group-addon"><i
+										class="fa fa-lock fa-lg" aria-hidden="true"></i></span> 
+										<input 	type="password" class="form-control" name="password1"
+										id="confirm" 
+										style="width: 60% "name="password1" id="confirm"
+									minlength="4" maxlength="16" placeholder="Confirm Password"
+									onkeyup="checkPass(); return false;" /> 
+									<span	id="confirmMessage" class="confirmMessage"></span> 
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group "
+							style="padding-right: 50%; padding-left: 50px">
+							<button type="submit"
+								class="btn btn-primary btn-lg btn-block login-button"
+								name="btnSubmit" value="Register">Register</button>
+						</div>
+						<div class="login-register" style="padding-left: 50px">
+							<a href="LoginPage.html">Login</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="footer">
+		<!-- <img src="C:\Users\sanjaykeerthy.mani\Pictures\Perficient logo.jpg" alt="logo" /> -->
+	</div>
+
+	<script type="text/javascript" src="js/Validate.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
+</body>
+</html>

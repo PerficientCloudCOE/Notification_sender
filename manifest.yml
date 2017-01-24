@@ -1,0 +1,6 @@
+applications:
+- name: PRFTNotification-sender
+  path: ./target/cloudapp.war
+  memory: 512mb
+  random-route: true
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
