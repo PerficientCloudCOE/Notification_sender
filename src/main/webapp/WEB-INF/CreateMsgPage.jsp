@@ -13,9 +13,40 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<style>
+.header img {
+	float: left;
+	width: 300px;
+	height: 100px;
+	background: #555;
+}
+
+
+.container {
+  position: absolute;
+  width: 70%;
+  height:40%;
+  z-index: 15;
+  top: 30%;
+  left: 30%;
+  margin: -100px 0 0 -150px;
+  padding-top:40px;
+}
+
+
+
+</style>
 <title>Create Msg Page</title>
 </head>
-<body>
+<body background="images\A.jpg">
+
+<div class="header">
+	<img src="images\Perficient logo.jpg" alt="logo"/>
+	</div>
+
+
+
 	<div class="container">
 		<div id="loginbox" style="margin-top: 50px;"
 			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
